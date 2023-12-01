@@ -23,7 +23,7 @@ function App() {
             setAlertVisibility(false);
           }}
         >
-          showing the alert. aho
+          showing the alert.
         </Alert>
       )}
       <Button
