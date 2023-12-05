@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Alert from "./assets/components/Alert";
-import Button from "./assets/components/Button";
-import ListGroup from "./assets/components/ListGroup";
+import Alert from "./assets/components/Alert/Alert";
+import Button from "./assets/components/Button/Button";
+import ListGroup from "./assets/components/ListGroup/ListGroup";
+import LikeButton from "./assets/components/LikeButton/LikeButton";
 
 function App() {
   const [alertVisibility, setAlertVisibility] = useState(false);
@@ -34,6 +35,11 @@ function App() {
       >
         My button
       </Button>
+      <LikeButton
+        onClick={() => {
+          console.log("Clicked");
+        }}
+      />
     </>
   );
 }
