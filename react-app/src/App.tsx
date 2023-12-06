@@ -9,6 +9,7 @@ import Cart from "./assets/components/Cart/Cart";
 import ExpandableText from "./assets/components/ExpandableText/ExpandableText";
 import Form from "./assets/components/Form/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 
 function App() {
   const [alertVisibility, setAlertVisibility] = useState(false);
@@ -23,13 +24,13 @@ function App() {
       id: 2,
       description: "bbb",
       amount: 20,
-      category: "Electronics",
+      category: "Electrical",
     },
     {
       id: 3,
       description: "ccc",
       amount: 20,
-      category: "Electronics",
+      category: "Mechanical",
     },
     {
       id: 4,
@@ -49,12 +50,21 @@ function App() {
   const handleClick = (item: string) => {
     console.log(item);
   };
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
   return (
     <>
+      <div className="mb-3">
+        <ExpenseFilter onSelect={(category) => setSelectedCategory(category)} />
+      </div>
       <ExpenseList
-        expenses={expenses}
+        expenses={visibleExpenses}
         onDelete={(id) =>
-          setExpenses(expenses.filter((expense) => expense.id !== id))
+          setExpenses(visibleExpenses.filter((expense) => expense.id !== id))
         }
       />
       {/* <Form /> */}
