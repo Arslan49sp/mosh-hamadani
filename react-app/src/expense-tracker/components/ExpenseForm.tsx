@@ -8,7 +8,7 @@ const ExpenseForm = () => {
         <input id="description" type="text" className="form-control" />
       </div>
       <div className="mb-3">
-        <label htmlFor="amount">Amu</label>
+        <label htmlFor="amount">Au</label>
         <input id="amount" type="number" className="form-control" />
       </div>
       <div className="mb-3">
