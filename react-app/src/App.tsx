@@ -10,7 +10,8 @@ import ExpandableText from "./assets/components/ExpandableText/ExpandableText";
 import Form from "./assets/components/Form/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
-
+import ExpenseForm from "./expense-tracker/components/ExpenseForm";
+export const categories = ["Electronics", "Electrical", "Mechanical"] as const;
 function App() {
   const [alertVisibility, setAlertVisibility] = useState(false);
   const [expenses, setExpenses] = useState([
@@ -58,6 +59,9 @@ function App() {
     : expenses;
   return (
     <>
+      <div className="mb-5">
+        <ExpenseForm />
+      </div>
       <div className="mb-3">
         <ExpenseFilter onSelect={(category) => setSelectedCategory(category)} />
       </div>

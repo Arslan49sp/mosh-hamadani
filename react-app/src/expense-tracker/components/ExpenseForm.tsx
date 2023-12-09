@@ -1,4 +1,5 @@
 import React from "react";
+import { categories } from "../../App";
 
 const ExpenseForm = () => {
   return (
@@ -8,13 +9,21 @@ const ExpenseForm = () => {
         <input id="description" type="text" className="form-control" />
       </div>
       <div className="mb-3">
-        <label htmlFor="amount">Amou</label>
+        <label htmlFor="amount">Amount</label>
         <input id="amount" type="number" className="form-control" />
       </div>
       <div className="mb-3">
         <label htmlFor="category">Category</label>
-        <select id="category" className="form-select"></select>
+        <select id="category" className="form-select">
+          <option value=""></option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}{" "}
+            </option>
+          ))}
+        </select>
       </div>
+      <button className="btn btn-primary">Submit</button>
     </form>
   );
 };
