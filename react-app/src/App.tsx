@@ -11,7 +11,7 @@ import Form from "./assets/components/Form/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
-export const categories = ["Electronics", "Electrical", "Mechanical"] as const;
+import categories from "./expense-tracker/Categories";
 function App() {
   const [alertVisibility, setAlertVisibility] = useState(false);
   const [expenses, setExpenses] = useState([
