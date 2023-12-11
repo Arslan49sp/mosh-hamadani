@@ -10,7 +10,7 @@ interface Post {
   const usePosts = (userId: number | undefined) => {
     const fetchPosts = () =>
     axios
-    .get('https://xxxjsonplaceholder.typicode.com/posts', {
+    .get('https://jsonplaceholder.typicode.com/posts', {
         params: {
             userId
         }
