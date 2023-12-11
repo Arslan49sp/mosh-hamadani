@@ -20,7 +20,7 @@ interface Post {
     return useQuery<Post[], Error>({
         queryKey: ["user", userId,  "posts"],
         queryFn: fetchPosts,
-        staleTime: 10 * 60 * 1000,
+        staleTime: 1 * 60 * 1000,
       });
   }
 
