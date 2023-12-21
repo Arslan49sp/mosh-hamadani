@@ -7,6 +7,9 @@ export default function Home() {
       <Link className="btn btn-link" href="/users">
         Users
       </Link>
+      <Link className="btn btn-link" href="/products">
+        Products
+      </Link>
     </main>
   );
 }
