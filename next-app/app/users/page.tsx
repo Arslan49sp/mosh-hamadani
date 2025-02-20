@@ -4,7 +4,12 @@ interface Props {
   searchParams: { sortOrder: string };
 }
 const UsersPage = ({ searchParams: { sortOrder } }: Props) => {
-  return <UserTable sortOrder={sortOrder} />;
+  return (
+    <>
+      <h1>Users</h1>
+      <UserTable sortOrder={sortOrder} />
+    </>
+  );
 };
 
 export default UsersPage;
