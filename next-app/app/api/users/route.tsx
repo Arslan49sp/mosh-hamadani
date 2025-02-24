@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
   if (!body.name)
     return NextResponse.json(
-      { error: "you need to provide the name." },
+      { error: "You need to provide the name." },
       { status: 400 }
     );
 
