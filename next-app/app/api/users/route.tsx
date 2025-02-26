@@ -17,5 +17,19 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
 
-  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
+  const user = await prisma.user.findUnique({
+    where: { email: body.email },
+  });
+
+  if (user)
+    return NextResponse.json({ error: "User already exist" }, { status: 400 });
+
+  const newUser = await prisma.user.create({
+    data: {
+      email: body.email,
+      name: body.name,
+    },
+  });
+
+  return NextResponse.json(newUser, { status: 201 });
 }
