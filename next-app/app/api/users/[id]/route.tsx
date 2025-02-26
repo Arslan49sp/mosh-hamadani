@@ -1,15 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import schema from "../schema";
+import { prisma } from "@/prisma/client";
 
 interface Props {
-  params: { id: number };
+  params: { id: string };
 }
 
-export function GET(request: NextRequest, { params }: Props) {
-  if (params.id > 10)
+export async function GET(request: NextRequest, { params }: Props) {
+  const user = await prisma.user.findUnique({
+    where: { id: parseInt(params.id) },
+  });
+  if (!user)
     return NextResponse.json({ error: "User Not Found." }, { status: 404 });
 
-  return NextResponse.json({ id: params.id, name: "Arslan." });
+  return NextResponse.json(user);
 }
 
 export async function PUT(request: NextRequest, { params }: Props) {
@@ -21,14 +25,14 @@ export async function PUT(request: NextRequest, { params }: Props) {
       { status: 400 }
     );
 
-  if (params.id > 10)
+  if (parseInt(params.id) > 10)
     return NextResponse.json({ error: "User not found!" }, { status: 404 });
 
   return NextResponse.json({ id: 1, name: body.name });
 }
 
 export function DELETE(request: NextRequest, { params }: Props) {
-  if (params.id > 10)
+  if (parseInt(params.id) > 10)
     return NextResponse.json({ error: "User not found!" }, { status: 404 });
   return NextResponse.json({});
 }
